@@ -1,7 +1,7 @@
 // Event Listeners
 document.getElementById("submit").addEventListener("click", () => {
     const book = new Book(document.getElementById("title").value, document.getElementById("author").value)
-    book.addBook(book.getTitle(), book.getAuthor())
+    book.addBook(book.title, book.author)
 })
 
 class UI{
@@ -15,16 +15,16 @@ class UI{
 class Book extends UI{
     constructor(title, author){
         super()
-        this.title = title
-        this.author = author
+        this._title = title
+        this._author = author
     }
 
-    getTitle = () => {
-        return this.title
+    get title() {
+        return this._title
     }
 
-    getAuthor = () => {
-        return this.author
+    get author(){
+        return this._author
     }
 
     createBook = (title, author) => {
@@ -56,4 +56,6 @@ class Book extends UI{
         })
     }
 }
+
+let book = new Book("Bobby", "Bobberson")
 
