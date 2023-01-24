@@ -28,7 +28,7 @@ class UI{
         if(this.form_title.value.trim() == "" || this.form_author.value.trim() == "")
             return alert("Please input a title and author")
         
-            const book = this.createBook(title, author)
+        const book = this.createBook(title, author)
         this.book_container.appendChild(book)
         this.removeBook(book)
     }
