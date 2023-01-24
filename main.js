@@ -9,6 +9,22 @@ class UI{
         this.form_title = document.getElementById("title")
         this.form_author = document.getElementById("author")
         this.book_container = document.querySelector(".book__container")
+    } 
+}
+
+class Book extends UI{
+    constructor(title, author){
+        super()
+        this.title = title
+        this.author = author
+    }
+
+    getTitle = () => {
+        return this.title
+    }
+
+    getAuthor = () => {
+        return this.author
     }
 
     createBook = (title, author) => {
@@ -28,7 +44,7 @@ class UI{
         if(this.form_title.value.trim() == "" || this.form_author.value.trim() == "")
             return alert("Please input a title and author")
         
-            const book = this.createBook(title, author)
+        const book = this.createBook(title, author)
         this.book_container.appendChild(book)
         this.removeBook(book)
     }
@@ -38,21 +54,5 @@ class UI{
             if(e.target.id == "remove")
                 e.target.parentElement.remove()
         })
-    }
-}
-
-class Book extends UI{
-    constructor(title, author){
-        super()
-        this.title = title
-        this.author = author
-    }
-
-    getTitle = () => {
-        return this.title
-    }
-
-    getAuthor = () => {
-        return this.author
     }
 }
